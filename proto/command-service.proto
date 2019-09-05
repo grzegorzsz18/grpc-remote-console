@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service CommandService {
+    rpc CallCommand(stream CommandRequest) returns (stream CommandResponse) {}
+}
+
+
+message CommandResponse {
+    string command = 1;
+    string standardOutput = 2;
+    string errorOutput = 3;
+}
+
+message CommandRequest {
+    string command = 1;
+    string params = 2;
+}
